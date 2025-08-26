@@ -8,17 +8,17 @@ export default function ThanksPage() {
   const regId = params.get('regId');
 
   return (
-    <div style={{ padding: 20 }}>
+    <main>
       <h2>Thank you for registering!</h2>
       {regId ? (
         <div>
           <p>Your registration ID:</p>
-          <pre style={{ background: '#f7f7f7', padding: 8 }}>{regId}</pre>
+          <pre className="reg-id">{regId}</pre>
         </div>
       ) : (
         <p>No registration ID found.</p>
       )}
       <p>Check your browser's localStorage to see stored registrations.</p>
-    </div>
+    </main>
   );
 }

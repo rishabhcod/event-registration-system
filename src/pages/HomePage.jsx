@@ -5,13 +5,13 @@ import { events } from '../data/events';
 
 export default function HomePage() {
   return (
-    <div style={{ padding: 20 }}>
+    <main>
       <h2>Upcoming Events</h2>
-      <div style={{ marginTop: 12 }}>
+      <div>
         {events.map(e => (
           <EventCard key={e.id} event={e} />
         ))}
       </div>
-    </div>
+    </main>
   );
 }

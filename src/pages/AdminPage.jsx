@@ -82,10 +82,10 @@ export default function AdminPage() {
   }
 
   return (
-    <div style={{ padding: 20 }}>
+    <main>
       <h2>Admin — Registrations</h2>
 
-      <div style={{ margin: '12px 0', display: 'flex', gap: 8 }}>
+      <div style={{ display: 'flex', gap: 8, margin: '12px 0' }}>
         <button onClick={exportCSV}>Export CSV</button>
         <button onClick={clearAll}>Clear All</button>
       </div>
@@ -94,16 +94,16 @@ export default function AdminPage() {
         <div>No registrations yet. Try submitting a registration from the Home page.</div>
       ) : (
         <div style={{ overflowX: 'auto' }}>
-          <table style={{ borderCollapse: 'collapse', minWidth: 800 }}>
+          <table>
             <thead>
               <tr>
-                <th style={{ border: '1px solid #ddd', padding: 8 }}>Reg ID</th>
-                <th style={{ border: '1px solid #ddd', padding: 8 }}>Event</th>
-                <th style={{ border: '1px solid #ddd', padding: 8 }}>Name</th>
-                <th style={{ border: '1px solid #ddd', padding: 8 }}>Email</th>
-                <th style={{ border: '1px solid #ddd', padding: 8 }}>Phone</th>
-                <th style={{ border: '1px solid #ddd', padding: 8 }}>Created At</th>
-                <th style={{ border: '1px solid #ddd', padding: 8 }}>Actions</th>
+                <th>Reg ID</th>
+                <th>Event</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Created At</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -111,13 +111,13 @@ export default function AdminPage() {
                 const eventTitle = (events.find(e => e.id === r.eventId) || {}).title || r.eventId;
                 return (
                   <tr key={r.id}>
-                    <td style={{ border: '1px solid #eee', padding: 8, verticalAlign: 'top' }}>{r.id}</td>
-                    <td style={{ border: '1px solid #eee', padding: 8, verticalAlign: 'top' }}>{eventTitle}</td>
-                    <td style={{ border: '1px solid #eee', padding: 8, verticalAlign: 'top' }}>{r.name}</td>
-                    <td style={{ border: '1px solid #eee', padding: 8, verticalAlign: 'top' }}>{r.email}</td>
-                    <td style={{ border: '1px solid #eee', padding: 8, verticalAlign: 'top' }}>{r.phone}</td>
-                    <td style={{ border: '1px solid #eee', padding: 8, verticalAlign: 'top' }}>{new Date(r.createdAt).toLocaleString()}</td>
-                    <td style={{ border: '1px solid #eee', padding: 8, verticalAlign: 'top' }}>
+                    <td>{r.id}</td>
+                    <td>{eventTitle}</td>
+                    <td>{r.name}</td>
+                    <td>{r.email}</td>
+                    <td>{r.phone}</td>
+                    <td>{new Date(r.createdAt).toLocaleString()}</td>
+                    <td>
                       <button onClick={() => {
                         if (confirm(`Delete registration ${r.id}?`)) deleteOne(r.id);
                       }}>Delete</button>
@@ -129,6 +129,6 @@ export default function AdminPage() {
           </table>
         </div>
       )}
-    </div>
+    </main>
   );
 }

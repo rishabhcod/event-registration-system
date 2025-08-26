@@ -18,7 +18,7 @@ export default function RegisterPage() {
   const [error, setError] = useState('');
 
   if (!event) {
-    return <div style={{ padding: 20 }}>Event not found.</div>;
+    return <main>Event not found.</main>;
   }
 
   function handleChange(e) {
@@ -57,9 +57,9 @@ export default function RegisterPage() {
   }
 
   return (
-    <div style={{ padding: 20, maxWidth: 600 }}>
+    <main style={{ maxWidth: 600 }}>
       <h2>Register for: {event.title}</h2>
-      <form onSubmit={handleSubmit} style={{ display: 'grid', gap: 8, marginTop: 12 }}>
+      <form onSubmit={handleSubmit}>
         <label>
           Name
           <input name="name" value={form.name} onChange={handleChange} />
@@ -72,9 +72,9 @@ export default function RegisterPage() {
           Phone
           <input name="phone" value={form.phone} onChange={handleChange} />
         </label>
-        {error && <div style={{ color: 'crimson' }}>{error}</div>}
+        {error && <div className="error">{error}</div>}
         <button type="submit">Submit Registration</button>
       </form>
-    </div>
+    </main>
   );
 }
